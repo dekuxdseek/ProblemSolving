@@ -32,6 +32,7 @@
 #define she(i,start,end)        for(int i =end-1; i>=start; --i)
 #define all(v)                  v.begin() , v.end()
 #define w(x)                    int x;cin>>x;while(x--)
+
 using namespace std;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 bool isprime(int n);
@@ -41,83 +42,35 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
-    int t=1;
-    
+    int t =1;
+    // cin>>t;
     while(t--)
     {
         solve();
     }return 0;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-bool isprime(ll int n)
+bool isprime(int n)
 {
- 
-    for(ll int i =2; i*i<=n; ++i)
+    for(int i =2; i*i<n; ++i)
     {
         if(n%i ==0)return false;
     }
     return n>1;
 }
-vector<ll int> primefactors(ll n)
-{
-    vector<ll int> factor;
-    while(n%2 ==0)
-    {
-        factor.pb(2);
-        n/=2;
-    }
-     
-    for(ll i =3;i*i<=n; i += 2)
-    {
-        
-        while(n%i ==0)
-        {
-            factor.pb(i);
-            n /=i;
-        }
-        
-    }
-   if(n>1) factor.pb(n);
-    return factor;
-}
-
-ll sqrte(ll n)
-{
-    ll ans = 1;
-    for(ll i =1; i*i<=n+1; ++i)
-    {   
-        ans = max(i,ans);
-    }
-    
-    return ans;
-    
-}
-
-bool prfsqr(ll n)
-{   if(n <= 1) return false;
-
-    else{
-        ll num1 = sqrte(n);
-        if(isprime(num1))
-        {
-            if(num1*num1 == n) return true;
-            else return false;
-        } else return false;
-    }
-}
-
 const int N = 1e6+13;
-vector<bool> p (N,true);
-void seive()
+vector<bool>prime(N,true);
+void sieve()
 {
-     p[0] = p[1] = false;
-    for(ll i =2; i*i<=N; ++i)
+    prime[0] = prime[1] = false;
+
+    for(int i =2; i*i<=N; ++i)
     {
         if(isprime(i))
         {
-            for(int j =i*i; j<=N; j+=i)
+            for(int j = i*i; j<=N; ++j)
             {
-                p[j] = false;
+                prime[j] = false;
             }
         }
     }
@@ -128,24 +81,28 @@ void seive()
 
 void solve()
 {
-    // your code goes here
-    seive();
-    ll n;
-    cin>>n;
-    
-    me(i,0,n)
+    //your code goes here
+   string s;
+   cin>>s;
+   int l=0,u=0;
+   me(i,0,s.size()){
+    if((int)s[i] >=97)l++;
+   else if((int)s[i]>=65)u++;}
+   if(l>=u)
+   {
+    me(i,0,s.size())
     {
-            ll el;
-            cin>>el;
-            string ans = "NO";
-            ll ss = sqrt(el);
-            if(p[ss] == true && ss*ss == el)ans = "YES";
-
-            cout<<ans<<endl;
+        if((int)s[i]<91)s[i]= char(int(s[i])+32);
     }
+   }
+   else{
+    me(i,0,s.size()){
+        if((int)s[i]>=97)s[i]=char((int)s[i]-32);
+    }
+   }
+   cout<<s<<endl;
 
-
-    
+   
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

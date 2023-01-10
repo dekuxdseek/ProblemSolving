@@ -99,24 +99,6 @@ void solve()
                 if(n%6 ==0) min =n/6;
                 if(n%6 != 0)min = n/6 +1;
                
-
-        // ll m = n;
-
-        // while(n>=6)
-        // {
-        //     n -=6;
-        //     min++;
-        // }
-        // if(n == 4 || n ==2)min++;
-
-
-        // while(m>=4)
-        // {
-        //     m-=4;
-        //     max++;
-        // }
-        // if(m==2)max++;
-
         cout<<min<<" "<<max<<endl;
     
         }
