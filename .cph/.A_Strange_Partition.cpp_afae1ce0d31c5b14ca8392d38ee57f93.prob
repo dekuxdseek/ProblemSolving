@@ -1,0 +1,1 @@
+{"name":"Local: A_Strange_Partition","url":"x:\\Codeforces\\A_Strange_Partition.cpp","tests":[{"id":1673359758486,"input":"2\n3 3\n3 6 9\n3 3\n6 4 11\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"x:\\Codeforces\\A_Strange_Partition.cpp","group":"local","local":true}
