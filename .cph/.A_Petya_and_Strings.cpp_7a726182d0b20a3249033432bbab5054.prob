@@ -1,0 +1,1 @@
+{"name":"Local: A_Petya_and_Strings","url":"x:\\Codeforces\\A_Petya_and_Strings.cpp","tests":[{"id":1673528527020,"input":"3\naaaa\naaaA\nabs\nAbz\nabcdefg\nAbCdEfF\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"x:\\Codeforces\\A_Petya_and_Strings.cpp","group":"local","local":true}
