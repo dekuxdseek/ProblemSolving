@@ -42,8 +42,8 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
-    int t ;
-    cin>>t;
+    int t =1;
+    // cin>>t;
     while(t--)
     {
         solve();
@@ -82,7 +82,28 @@ void sieve()
 void solve()
 {
     //your code goes here
-   
+    int n ;
+    cin >> n;
+    vi a(n,0);
+    for(auto &val : a)cin >> val;
+    sort(all(a));
+    int me = 0,her = 0,index =n-1;
+    for(int i = 0; i < n; ++i)
+    {
+        me = accumulate(a.begin()+i , a.end() , 0);
+        if(i == 0){her = 0;}
+        else{her = accumulate(a.begin() , a.begin() + i, 0);}
+        
+        if(me <= her)
+        {
+            index = i-1;
+            break;
+        }
+    
+        
+    }
+
+    cout<<n - index <<endl;
    
 }
 
