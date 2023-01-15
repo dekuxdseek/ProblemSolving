@@ -36,16 +36,19 @@
 using namespace std;
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 bool isprime(int n);
+void sieve();
 void solve();
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 int main()
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);  
+    cin.tie(NULL); 
+    sieve();
     int t ;
     cin>>t;
     while(t--)
     {
+
         solve();
     }return 0;
 }
@@ -58,7 +61,7 @@ bool isprime(int n)
     }
     return n>1;
 }
-const int N = 1e6+13;
+const int N = 1e7+13;
 vector<bool>prime(N,true);
 void sieve()
 {
@@ -68,7 +71,7 @@ void sieve()
     {
         if(isprime(i))
         {
-            for(int j = i*i; j<=N; ++j)
+            for(int j = i*i; j<=N; j += i)
             {
                 prime[j] = false;
             }
@@ -78,85 +81,100 @@ void sieve()
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-bool cmp(pair<int,int>& a, pair<int,int>& b)
-{
-    if(a.first == b.first)return a.second < b.second;
-    return a.first < b.first; 
-}
 
+vi factor(int n)
+{
+    vi fact;
+    while(n%2 == 0)
+    {
+        fact.pb(2);
+        n/=2;
+
+    }
+
+    for(int i =3 ; i*i<=n; i += 2)
+    {
+        while(n%i ==0 && prime[i])
+        {
+            fact.pb(i);
+            n/=i;
+        }
+    }
+    if(n>1)fact.pb(n);
+    return fact;
+}
 void solve()
 {
     //your code goes here
-    int n;
-    cin>>n;
-    vector<pair<int,int>> v;
-    me(i,0,n)
-    {
-        int x,y;
-        cin>>x>>y;
-        v.pb(mp(x,y));
-    }
 
-    sort(all(v),cmp);
+    // my approach , same as editoral just implemented no so cleanly
+    // int n;
+    // cin>>n;
+    // int two =0,three=0;
+    // while(n%2 ==0)
+    // {
 
-    int red = 0;
-    me(i,0,n-1)
-    {
-        if(v[i].first -v[i+1].first <=0 && v[i].second - v[i+1].second <=0)
-        {
-            red =0;
-        }
-       
-        else {red = 1;break;}
-    }
-    if(red == 1)cout<<"NO"<<endl;
-    else{   
+    //     n/=2;
+    //     ++two;
+    // }
+    // while(n%3 == 0)
+    // {
+   
+    //     n/=3;
+    //     ++three;
+    // }
+    // if(n>1)cout<<-1<<endl;
+    // else if(two == three)
+    // {
+    //     cout<<two<<endl;
+    // }
+    // else if( two < three)
+    // {
+    //     cout<<(three-two) + three<<endl; 
+    // }
+    // else if(two >three)
+    // {
+    //     cout<<-1<<endl;
+    // }
 
-        int x =0, y=0;
 
-            string s;
-            me(i,0,n)
-            {
-                int n = v[i].first;
-                int m = v[i].second;
+//editorial
+    // int n;cin>>n;
+    // int d=0,t=0;
+    // while(n%2 == 0)
+    // {
+    //     n/=2;++d;
+    // }
+    // while(n%3 == 0)
+    // {
+    //     n/=3;++t;
+    // }
+    // if(d <= t && n ==1)
+    // {
+    //     cout<<2*t - d<<endl;
+    // }
+    // else 
+    // {
+    //     cout<<"-1"<<endl;
+    // }
 
-                if(x != n && y != m)
-                {
-                    int r = n-x;
-                    while(r--)
-                    {
-                    s.pb('R');
-                    }
-                    int u = m -y;
-                    while(u--)
-                    {
-                        s.pb('U');
-                        }
-                }
+// using factors
 
-                else if(x == n && y != m)
-                {
-                    int u = m-y;
-                    while(u--)
-                    {
-                        s.pb('U');
-                    }
-                }
-                else if (x !=n && y == m)
-                {
-                    int r = n - x;
-                    while(r--)
-                    {
-                        s.pb('R');
-                    }
-                }
-                x = n;
-                y = m;
-            }
-
-             cout<<"YES"<<endl<<s<<endl;
-    }
-
+int n;cin>>n;
+vi f = factor(n);
+int d =0, t=0;
+me(i,0,f.size())
+{
+    if(f[i] == 2)++d;
+    if(f[i] == 3)++t;
+}
+if(f.size() == (t + d) && t >= d )
+{
+    cout<<2*t - d<<endl;
+}
+else{
+    cout<<-1<<endl;
+}
    
 }
 

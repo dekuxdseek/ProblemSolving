@@ -42,8 +42,8 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
-    int t ;
-    cin>>t;
+    int t =1;
+    // cin>>t;
     while(t--)
     {
         solve();
@@ -78,85 +78,28 @@ void sieve()
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-bool cmp(pair<int,int>& a, pair<int,int>& b)
-{
-    if(a.first == b.first)return a.second < b.second;
-    return a.first < b.first; 
-}
 
 void solve()
 {
     //your code goes here
-    int n;
-    cin>>n;
-    vector<pair<int,int>> v;
-    me(i,0,n)
-    {
-        int x,y;
-        cin>>x>>y;
-        v.pb(mp(x,y));
-    }
-
-    sort(all(v),cmp);
-
-    int red = 0;
-    me(i,0,n-1)
-    {
-        if(v[i].first -v[i+1].first <=0 && v[i].second - v[i+1].second <=0)
+    int n,m;
+    cin>>n>>m;
+    if(n == m) cout<<n+1<<endl;
+    else{
+        int i =0;
+        int ct = n;
+        while(n>=m)
         {
-            red =0;
+            if(n == m){++ct; break;}
+            i = n;
+            i /=m;
+            ct+=i;
+            n = n/m + n%m;
         }
-       
-        else {red = 1;break;}
+        cout<<ct<<endl;
+
+
     }
-    if(red == 1)cout<<"NO"<<endl;
-    else{   
-
-        int x =0, y=0;
-
-            string s;
-            me(i,0,n)
-            {
-                int n = v[i].first;
-                int m = v[i].second;
-
-                if(x != n && y != m)
-                {
-                    int r = n-x;
-                    while(r--)
-                    {
-                    s.pb('R');
-                    }
-                    int u = m -y;
-                    while(u--)
-                    {
-                        s.pb('U');
-                        }
-                }
-
-                else if(x == n && y != m)
-                {
-                    int u = m-y;
-                    while(u--)
-                    {
-                        s.pb('U');
-                    }
-                }
-                else if (x !=n && y == m)
-                {
-                    int r = n - x;
-                    while(r--)
-                    {
-                        s.pb('R');
-                    }
-                }
-                x = n;
-                y = m;
-            }
-
-             cout<<"YES"<<endl<<s<<endl;
-    }
-
    
 }
 
