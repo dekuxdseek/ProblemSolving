@@ -42,8 +42,8 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
-    int t ;
-    cin>>t;
+    int t =1;
+    // cin>>t;
     while(t--)
     {
         solve();
@@ -58,7 +58,10 @@ bool isprime(int n)
     }
     return n>1;
 }
+
+const int M = 1e9+7;
 const int N = 1e6+13;
+
 vector<bool>prime(N,true);
 void sieve()
 {
@@ -68,22 +71,57 @@ void sieve()
     {
         if(isprime(i))
         {
-            for(int j = i*i; j<=N; ++j)
+            for(int j = i*i; j<=N; j += i)
             {
                 prime[j] = false;
             }
         }
     }
 }
+
+ll gcd(ll a, ll b)
+{
+    if(b == 0) return a;
+    else return gcd( b , a%b);
+}
+
+ll lcm(ll a, ll b)
+{
+    return (a*b)/gcd(a,b);
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+float arr_avg(vi &a, int idx)
+{
+    if(idx == a.size()) return 0;
+
+    float num = arr_avg(a,idx+1);
+    num += a[idx];
+    if(idx == 0)num/=a.size();
+
+    return num;
+    
+}
+
+
+
 void solve()
 {
     //your code goes here
-    
-   
+    int n;
+    cin >> n;
+    vi a(n,0);
+    for(auto &val: a)cin >> val;
+
+    float ans = arr_avg(a,0);
+
+    cout << std::fixed;
+    cout << std::setprecision(6);
+
+    cout << ans << endl;
+
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
