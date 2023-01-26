@@ -1,1 +1,1 @@
-{"name":"Local: A_A_plus_B","url":"x:\\Codeforces\\A_A_plus_B.cpp","tests":[{"id":1672256414593,"input":"\n4\n4+2\n0+0\n3+7\n8+9\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"x:\\Codeforces\\A_A_plus_B.cpp","group":"local","local":true}
+{"name":"Local: A_A_plus_B","url":"x:\\Codeforces\\A_A_plus_B.cpp","tests":[{"id":1672256414593,"input":"4\n4+2\n0+0\n3+7\n8+9","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"x:\\Codeforces\\A_A_plus_B.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: A_Hayato_and_School","url":"x:\\Codeforces\\A_Hayato_and_School.cpp","tests":[{"id":1674706544420,"input":"6\n3\n1 1 1\n4\n1 1 2 2\n3\n1 2 3\n5\n1 4 5 1 2\n4\n2 6 2 4\n5\n5 6 3 2 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"x:\\Codeforces\\A_Hayato_and_School.cpp","group":"local","local":true}
