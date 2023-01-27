@@ -82,7 +82,10 @@ void sieve()
 void solve()
 {
     //your code goes here
-    
+    ll a, b;
+    cin >> a >> b;
+    if(b == 1) cout << "NO" << endl; 
+    else cout << "YES" << endl << a << " " << (b)*a << " " <<  a*(b+1) << endl;
    
 }
 
