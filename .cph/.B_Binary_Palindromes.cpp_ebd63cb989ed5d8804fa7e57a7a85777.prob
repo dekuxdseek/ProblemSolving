@@ -1,0 +1,1 @@
+{"name":"Local: B_Binary_Palindromes","url":"x:\\Codeforces\\B_Binary_Palindromes.cpp","tests":[{"id":1675950919335,"input":"1\n3\n1111\n100110\n010101","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"x:\\Codeforces\\B_Binary_Palindromes.cpp","group":"local","local":true}
