@@ -82,7 +82,7 @@ void sieve()
 void solve()
 {
     //your code goes here
-   
+   //
    
 }
 
