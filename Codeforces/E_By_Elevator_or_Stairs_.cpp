@@ -14,9 +14,10 @@
 #include <unordered_map>
 #include <cstdlib>
 #include <iomanip>
-#define f               first
-#define s              second
-#define int               long long
+
+
+#define f                first
+#define s                second
 #define ll               long long
 #define pb               push_back
 #define mp               make_pair
@@ -38,11 +39,27 @@
 using namespace std;
 
 
+// Own The Journey
+
+
+// Finish it!!!
+
+
+// f->output, state, transition ,base-cases
 
 
 int main()
 {
     // Your code goes here
-    
+        int n, c;
+    cin >> n >> c;
+
+    vi a(n-1, 0);
+    vi b(n-1, 0);
+
+    me(i,0,n-1)cin >> a[i];
+    me(i,0,n-1)cin >> b[i];
+
+    me(i,0,n-1)cout << a[i] << " " << b[i] << '\n';
     return 0;
 }
